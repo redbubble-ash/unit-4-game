@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+html{
+  
+    width: 100%;
+    height: 100%;
+
+}
+
+body{
+    background: url("../images/background.jpg");
+    margin: auto;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   
+    
+}
+
+header{
+    font-family: 'Bungee Inline', cursive;
+    font-size: 50px;
+    text-align: right;
+    margin-right: 50px;
+
+}
+
+.container{
+    height: 100px;
+    text-align: center;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+   
+    
+}
+
+
+img{
+   width: 100px;
+   height: 100px;
+   padding: 1px;
+}
+.img-frame-cap {
+    width:200px;
+    padding:5px 5px 2px 5px;
+    border:1px solid lightskyblue !important; 
+
+}
+h3{
+    font-family: 'Anton', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    top: 10px;
+}
