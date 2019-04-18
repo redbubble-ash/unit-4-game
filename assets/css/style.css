@@ -14,7 +14,7 @@ html{
 body{
     background: url("../images/background.jpg");
     margin: auto;
-    padding: 0;
+    padding: 10px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
    
