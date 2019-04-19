@@ -6,7 +6,7 @@ var character=[{name:"Darth_Vader",image:"assets/images/darthVader.png", HP:160 
 
 $(document).ready(function(){
     $(".img-frame-cap").on("click",function(){
-        $(".img-frame-cap").hide();
+        $(".firstSection").remove();
         var characterID = $(this).attr("data-id");
     
         
