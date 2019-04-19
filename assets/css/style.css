@@ -40,8 +40,8 @@ header{
 
 
 img{
-   width: 100px;
-   height: 100px;
+   width: 80px;
+   height: 80px;
    padding: 1px;
 }
 .img-frame-cap {
@@ -50,10 +50,10 @@ img{
     border:1px solid lightskyblue !important; 
 
 }
-h3{
+
+h4{
     font-family: 'Anton', sans-serif;
     font-weight: bold;
-    font-size: 10px;
     top: 10px;
 }
 
