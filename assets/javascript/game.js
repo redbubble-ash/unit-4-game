@@ -14,10 +14,13 @@ var defenderHP = ["","",""];
 
 
 
-// click one character
+
 $(document).ready(function () {
   $(".img-frame-cap2").hide();
   var hideThirdSection = $(".thirdSection").detach();
+  $(".img-frame-cap4").hide();
+
+  // choose a fighter by clicking an image
   $(".img-frame-cap").on("click", function () {
     $(".firstSection").remove();
     // get data-id for the clicked character
@@ -58,53 +61,53 @@ $(document).ready(function () {
     $("section").prepend(hideThirdSection);
 
 
-    $(".img-frame-cap3-1 img").attr({
-      "src": defenderImage[0],
-      "alt": characterID
-    });
-
+    $(".img-frame-cap3-1 img").attr("src", defenderImage[0]);
     $(".img-frame-cap3-1 .CharacterName").html(defenderNmae[0]);
     $(".img-frame-cap3-1 .HP").html(defenderHP[0]);
 
-    $(".img-frame-cap3-2 img").attr({
-      "src": defenderImage[1],
-      "alt": characterID
-    });
-
+    $(".img-frame-cap3-2 img").attr( "src", defenderImage[1],);
     $(".img-frame-cap3-2 .CharacterName").html(defenderNmae[1]);
     $(".img-frame-cap3-2 .HP").html(defenderHP[1]);
 
-    $(".img-frame-cap3-3 img").attr({
-      "src": defenderImage[2],
-      "alt": characterID
-    });
-   
+    $(".img-frame-cap3-3 img").attr("src", defenderImage[2]);
     $(".img-frame-cap3-3 .CharacterName").html(defenderNmae[2]);
     $(".img-frame-cap3-3 .HP").html(defenderHP[2]);
 
-    
-    
+    // choose defender by clicking an image from enemies available list
+    $(".img-frame-cap3-1").on("click", function(){
+      console.log("clicked");
+      $(".img-frame-cap4 img").attr("src", defenderImage[0]);
+      $(".img-frame-cap4 .CharacterName").html(defenderNmae[0]);
+      $(".img-frame-cap4 .HP").html(defenderHP[0]);
+      $(".img-frame-cap3-1").detach();
+      $(".img-frame-cap4").show();
+    })
 
+    $(".img-frame-cap3-2").on("click", function(){
+      console.log("clicked");
+      $(".img-frame-cap4 img").attr("src", defenderImage[1]);
+      $(".img-frame-cap4 .CharacterName").html(defenderNmae[1]);
+      $(".img-frame-cap4 .HP").html(defenderHP[1]);
+      $(".img-frame-cap3-2").detach();
+      $(".img-frame-cap4").show();
+    })
 
-
-
-
-
-
-
-
-
-
-
-
+    $(".img-frame-cap3-3").on("click", function(){
+      console.log("clicked");
+      $(".img-frame-cap4 img").attr("src", defenderImage[2]);
+      $(".img-frame-cap4 .CharacterName").html(defenderNmae[2]);
+      $(".img-frame-cap4 .HP").html(defenderHP[2]);
+      $(".img-frame-cap3-3").detach;
+      $(".img-frame-cap4").show();
+    })
+  
+  
 
   });
 
 
-
-
-
-
+  
+  
 
 
 
