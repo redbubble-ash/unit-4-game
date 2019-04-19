@@ -1,7 +1,7 @@
 var character = [{ name: "DarthVader", image: "assets/images/darthVader.png", HP: 160, attackPower: 20, counterattackPower: 30},
 { name: "BB8", image: "assets/images/bb8.png", HP: 180, attackPower: 30, counterattackPower: 40 },
 { name: "Yoda", image: "assets/images/yoda.png", HP: 120, attackPower: 10, counterattackPower: 20 },
-{ name: "Rey", image: "assets/images/rey.png", HP: 150, attackPower:15, counterattackPower:25 }];
+{ name: "Rey", image: "assets/images/rey.png", HP: 150, attackPower:10, counterattackPower:25 }];
 
 var characterImage = "";
 var characterName = "";
@@ -90,11 +90,7 @@ $(document).ready(function () {
         newAttackPower += attackPower;
         defenderHP[0] -= newAttackPower;
         $(".img-frame-cap2 .HP").html(hpLevel);
-        $(".img-frame-cap4 .HP").html(defenderHP[0]);
-
-
-      
-        
+        $(".img-frame-cap4 .HP").html(defenderHP[0]);    
       })
     
     })
@@ -105,6 +101,14 @@ $(document).ready(function () {
       $(".img-frame-cap4 .HP").html(defenderHP[1]);
       $(".img-frame-cap3-2").detach();
       $(".img-frame-cap4").show();
+
+      $("button").on("click", function(){
+        hpLevel -= defenderCounterAttackPower[1];
+        newAttackPower += attackPower;
+        defenderHP[1] -= newAttackPower;
+        $(".img-frame-cap2 .HP").html(hpLevel);
+        $(".img-frame-cap4 .HP").html(defenderHP[1]);    
+      })
     })
 
     $(".img-frame-cap3-3").on("click", function(){
@@ -113,6 +117,14 @@ $(document).ready(function () {
       $(".img-frame-cap4 .HP").html(defenderHP[2]);
       $(".img-frame-cap3-3").detach();
       $(".img-frame-cap4").show();
+
+      $("button").on("click", function(){
+        hpLevel -= defenderCounterAttackPower[2];
+        newAttackPower += attackPower;
+        defenderHP[2] -= newAttackPower;
+        $(".img-frame-cap2 .HP").html(hpLevel);
+        $(".img-frame-cap4 .HP").html(defenderHP[2]);    
+      })
     })
   
   
