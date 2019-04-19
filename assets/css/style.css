@@ -56,3 +56,10 @@ h3{
     font-size: 10px;
     top: 10px;
 }
+
+.img-frame-cap2 {
+    width:200px;
+    padding:5px 5px 2px 5px;
+    border:1px solid lightskyblue !important; 
+
+}
