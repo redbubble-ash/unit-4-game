@@ -64,7 +64,21 @@ h3{
 
 }
 
-.img-frame-cap3 {
+.img-frame-cap3-1 {
+    width:200px;
+    padding:5px 5px 2px 5px;
+    border:1px solid lightskyblue !important; 
+
+}
+
+.img-frame-cap3-2 {
+    width:200px;
+    padding:5px 5px 2px 5px;
+    border:1px solid lightskyblue !important; 
+
+}
+
+.img-frame-cap3-3 {
     width:200px;
     padding:5px 5px 2px 5px;
     border:1px solid lightskyblue !important; 
