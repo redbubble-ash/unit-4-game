@@ -1,17 +1,19 @@
-var character = [{ name: "DarthVader", image: "assets/images/darthVader.png", HP: 160 },
-{ name: "BB8", image: "assets/images/bb8.png", HP: 180 },
-{ name: "Yoda", image: "assets/images/yoda.png", HP: 120 },
-{ name: "Rey", image: "assets/images/rey.png", HP: 150 }];
+var character = [{ name: "DarthVader", image: "assets/images/darthVader.png", HP: 160, attackPower: 20, counterattackPower: 30},
+{ name: "BB8", image: "assets/images/bb8.png", HP: 180, attackPower: 30, counterattackPower: 40 },
+{ name: "Yoda", image: "assets/images/yoda.png", HP: 120, attackPower: 10, counterattackPower: 20 },
+{ name: "Rey", image: "assets/images/rey.png", HP: 150, attackPower:15, counterattackPower:25 }];
 
 var characterImage = "";
 var characterName = "";
 var hpLevel = "";
+var attackPower = "";
+var newAttackPower = 0;
 var t = 0;
 var defenderImage = ["","",""];
 var defenderNmae = ["","",""];
 var defenderHP = ["","",""];
-
-
+var defenderAttackPower = ["","",""];
+var defenderCounterAttackPower = ["","",""];
 
 
 
@@ -31,14 +33,17 @@ $(document).ready(function () {
       if (characterID === character[i].name) {
           characterImage = character[i].image;
           characterName = character[i].name;
+          attackPower = character[i].attackPower;
           hpLevel = character[i].HP;
-
+          
       }
       // git image link for defender characters
       else {
         defenderImage[t] = character[i].image;
         defenderNmae[t] = character[i].name;
         defenderHP[t]= character[i].HP;
+        defenderAttackPower[t] = character[i].attackPower;
+        defenderCounterAttackPower[t] = character[i].counterattackPower;
         t++;
 
       }
@@ -79,6 +84,19 @@ $(document).ready(function () {
       $(".img-frame-cap4 .HP").html(defenderHP[0]);
       $(".img-frame-cap3-1").detach();
       $(".img-frame-cap4").show();
+
+      $("button").on("click", function(){
+        hpLevel -= defenderCounterAttackPower[0];
+        newAttackPower += attackPower;
+        defenderHP[0] -= newAttackPower;
+        $(".img-frame-cap2 .HP").html(hpLevel);
+        $(".img-frame-cap4 .HP").html(defenderHP[0]);
+
+
+      
+        
+      })
+    
     })
 
     $(".img-frame-cap3-2").on("click", function(){
