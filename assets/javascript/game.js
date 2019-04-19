@@ -60,7 +60,6 @@ $(document).ready(function () {
    // add image link, name & hp level for defender characters to your defender section
     $("section").prepend(hideThirdSection);
 
-
     $(".img-frame-cap3-1 img").attr("src", defenderImage[0]);
     $(".img-frame-cap3-1 .CharacterName").html(defenderNmae[0]);
     $(".img-frame-cap3-1 .HP").html(defenderHP[0]);
@@ -75,7 +74,6 @@ $(document).ready(function () {
 
     // choose defender by clicking an image from enemies available list
     $(".img-frame-cap3-1").on("click", function(){
-      console.log("clicked");
       $(".img-frame-cap4 img").attr("src", defenderImage[0]);
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[0]);
       $(".img-frame-cap4 .HP").html(defenderHP[0]);
@@ -84,7 +82,6 @@ $(document).ready(function () {
     })
 
     $(".img-frame-cap3-2").on("click", function(){
-      console.log("clicked");
       $(".img-frame-cap4 img").attr("src", defenderImage[1]);
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[1]);
       $(".img-frame-cap4 .HP").html(defenderHP[1]);
@@ -93,11 +90,10 @@ $(document).ready(function () {
     })
 
     $(".img-frame-cap3-3").on("click", function(){
-      console.log("clicked");
       $(".img-frame-cap4 img").attr("src", defenderImage[2]);
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[2]);
       $(".img-frame-cap4 .HP").html(defenderHP[2]);
-      $(".img-frame-cap3-3").detach;
+      $(".img-frame-cap3-3").detach();
       $(".img-frame-cap4").show();
     })
   
