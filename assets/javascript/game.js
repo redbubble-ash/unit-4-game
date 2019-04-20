@@ -89,6 +89,7 @@ $(document).ready(function () {
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       $(this).hide();
       checkNumberDefender --;
+      console.log(checkNumberDefender)
       $(".img-frame-cap4").show();
     })
 
@@ -96,7 +97,7 @@ $(document).ready(function () {
 
   });
 
-  // click button to attack, only call back when defender has been chosen.* do not place button click call back inside of other click call backs!! here defenderIndex is global scope
+  // click button to attack, only call back when the defender has been chosen.* do not place button click call back inside of other click call backs!! here defenderIndex is global scope
   $("button").on("click", function () {
     if (defenderIndex > -1 && hpLevel > 0 && defenderHP[defenderIndex]>0) {
       hpLevel -= defenderCounterAttackPower[defenderIndex];
