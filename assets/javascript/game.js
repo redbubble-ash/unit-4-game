@@ -5,20 +5,22 @@ var character = [{ name: "DarthVader", image: "assets/images/darthVader.png", HP
 
 var characterImage = "";
 var characterName = "";
-var hpLevel = "";
-var attackPower = "";
+var hpLevel = 0;
+var attackPower = 0;
 var newAttackPower = 0;
 var t = 0;
-var defenderImage = ["", "", ""];
-var defenderNmae = ["", "", ""];
-var defenderHP = ["", "", ""];
-var defenderAttackPower = ["", "", ""];
-var defenderCounterAttackPower = ["", "", ""];
+var defenderImage = [];
+var defenderNmae = [];
+var defenderHP = [];
+var defenderAttackPower = [];
+var defenderCounterAttackPower = [];
 var hideFirstSection="";
+var hideThirdSection="";
+
 
 $(document).ready(function () {
   $(".img-frame-cap2").hide();
-  var hideThirdSection = $(".thirdSection").detach();
+  hideThirdSection = $(".thirdSection").detach();
   $(".img-frame-cap4").hide();
   $(".restart").hide();
 
@@ -67,6 +69,8 @@ $(document).ready(function () {
     
     // loop over img-frame-cap3, update defender element
     $( ".img-frame-cap3" ).each(function( index ) {
+      console.log(index);
+      $(this).show();
       $(this).attr("dataIndex",index);
       $("img",this).attr("src", defenderImage[index]);
       $(".CharacterName",this).html(defenderNmae[index]);
@@ -81,7 +85,7 @@ $(document).ready(function () {
       $(".img-frame-cap4 img").attr("src", defenderImage[x]);
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[x]);
       $(".img-frame-cap4 .HP").html(defenderHP[x]);
-      $(this).detach();
+      $(this).hide();
       $(".img-frame-cap4").show();
       //  hp level decreases when attack 
       $("button").on("click", function () {
@@ -99,40 +103,6 @@ $(document).ready(function () {
 
     })
 
-    // $(".img-frame-cap3-2").on("click", function () {
-    //   $(".img-frame-cap4 img").attr("src", defenderImage[1]);
-    //   $(".img-frame-cap4 .CharacterName").html(defenderNmae[1]);
-    //   $(".img-frame-cap4 .HP").html(defenderHP[1]);
-    //   $(".img-frame-cap3-2").detach();
-    //   $(".img-frame-cap4").show();
-
-    //   $("button").on("click", function () {
-    //     hpLevel -= defenderCounterAttackPower[1];
-    //     newAttackPower += attackPower;
-    //     defenderHP[1] -= newAttackPower;
-    //     $(".img-frame-cap2 .HP").html(hpLevel);
-    //     $(".img-frame-cap4 .HP").html(defenderHP[1]);
-    //   })
-    // })
-
-    // $(".img-frame-cap3-3").on("click", function () {
-    //   $(".img-frame-cap4 img").attr("src", defenderImage[2]);
-    //   $(".img-frame-cap4 .CharacterName").html(defenderNmae[2]);
-    //   $(".img-frame-cap4 .HP").html(defenderHP[2]);
-    //   $(".img-frame-cap3-3").detach();
-    //   $(".img-frame-cap4").show();
-
-    //   $("button").on("click", function () {
-    //     hpLevel -= defenderCounterAttackPower[2];
-    //     newAttackPower += attackPower;
-    //     defenderHP[2] -= newAttackPower;
-    //     $(".img-frame-cap2 .HP").html(hpLevel);
-    //     $(".img-frame-cap4 .HP").html(defenderHP[2]);
-    //   })
-    // })
-
-
-
 
   });
 
@@ -142,18 +112,19 @@ $(document).ready(function () {
     $(".thirdSection").detach();
     $(".img-frame-cap4").hide();
     $(".restart").hide();
-    $("p").hide;
+    $("p").hide();
     characterImage = "";
     characterName = "";
-    hpLevel = "";
-    attackPower = "";
+    hpLevel = 0;
+    attackPower = 0;
     newAttackPower = 0;
     t = 0;
-    defenderImage = ["", "", ""];
-    defenderNmae = ["", "", ""];
-    defenderHP = ["", "", ""];
-    defenderAttackPower = ["", "", ""];
-    defenderCounterAttackPower = ["", "", ""];
+    defenderImage = [];
+    defenderNmae = [];
+    defenderHP = [];
+    defenderAttackPower = [];
+    defenderCounterAttackPower = [];
+    $(".img-frame-cap3").removeAttr("dataIndex");
 
 
   }
