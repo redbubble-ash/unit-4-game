@@ -14,8 +14,8 @@ var defenderNmae = [];
 var defenderHP = [];
 var defenderAttackPower = [];
 var defenderCounterAttackPower = [];
-var hideFirstSection="";
-var hideThirdSection="";
+var hideFirstSection = "";
+var hideThirdSection = "";
 var defenderIndex = -1;
 
 
@@ -67,47 +67,54 @@ $(document).ready(function () {
 
     // add image link, name & hp level for defender characters to your defender section
     $("section2").prepend(hideThirdSection);
-    
+
     // loop over img-frame-cap3, update defender element
-    $( ".img-frame-cap3" ).each(function( index ) {
+    $(".img-frame-cap3").each(function (index) {
       console.log(index);
       $(this).show();
-      $(this).attr("dataIndex",index);
-      $("img",this).attr("src", defenderImage[index]);
-      $(".CharacterName",this).html(defenderNmae[index]);
-      $(".HP",this).html(defenderHP[index]);
+      $(this).attr("dataIndex", index);
+      $("img", this).attr("src", defenderImage[index]);
+      $(".CharacterName", this).html(defenderNmae[index]);
+      $(".HP", this).html(defenderHP[index]);
 
     });
-    
+
 
     // choose defender by clicking an image from enemies available list
     $(".img-frame-cap3").on("click", function () {
-      defenderIndex=$(this).attr("dataIndex");
+      defenderIndex = $(this).attr("dataIndex");
       $(".img-frame-cap4 img").attr("src", defenderImage[defenderIndex]);
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[defenderIndex]);
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       $(this).hide();
       $(".img-frame-cap4").show();
     })
-      
-  
+
+
 
   });
 
-  // click button to attack, only call back when defender has been chosen.* do not place button click call back inside of other click call backs!!
+  // click button to attack, only call back when defender has been chosen.* do not place button click call back inside of other click call backs!! here defenderIndex is global scope
   $("button").on("click", function () {
-    if (defenderIndex > -1 && hpLevel>0){
+    if (defenderIndex > -1 && hpLevel > 0 && defenderHP[defenderIndex]>0) {
       hpLevel -= defenderCounterAttackPower[defenderIndex];
       newAttackPower += attackPower;
       defenderHP[defenderIndex] -= newAttackPower;
       console.log(hpLevel, newAttackPower, defenderHP[defenderIndex], defenderCounterAttackPower[defenderIndex]);
       $(".img-frame-cap2 .HP").html(hpLevel);
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
+      $("p").html("You attacked " + defenderNmae[defenderIndex] + " " + newAttackPower + "</br>" + defenderNmae[defenderIndex] + " attacked you back " + defenderCounterAttackPower[defenderIndex]);
       if (hpLevel <= 0) {
         $("p").html("You been defeated! Game is over!&#9785;");
         $(".restart").show();
-        $(".restart").on("click",restart);
+        $(".restart").on("click", restart);
       }
+      else if (defenderHP[defenderIndex]<= 0){
+        $(".img-frame-cap4").hide();
+        $("p").html("You have defeated " + defenderNmae[defenderIndex] + "." + " You can choose to fight another enemy !");
+
+      }
+    
     }
   })
 
