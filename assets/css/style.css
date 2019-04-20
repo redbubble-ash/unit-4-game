@@ -11,12 +11,14 @@ html{
 
 }
 
+
+
 body{
     background: url("../images/background.jpg");
     margin: auto;
     padding: 10px;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
    
     
 }
@@ -47,47 +49,46 @@ img{
 .img-frame-cap {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid lightskyblue !important; 
 
 }
 
 h4{
     font-family: 'Anton', sans-serif;
     font-weight: bold;
-    top: 10px;
 }
 
 .img-frame-cap2 {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid lightskyblue !important; 
 
 }
 
 .img-frame-cap3-1 {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid red !important; 
 
 }
 
 .img-frame-cap3-2 {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid red !important; 
 
 }
 
 .img-frame-cap3-3 {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid red !important; 
 
 }
 
 .img-frame-cap4 {
     width:200px;
     padding:5px 5px 2px 5px;
-    border:1px solid lightskyblue !important; 
+    border:5px solid black !important; 
 
 }
