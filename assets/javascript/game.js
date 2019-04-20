@@ -146,6 +146,7 @@ $(document).ready(function () {
     defenderHP = [];
     defenderAttackPower = [];
     defenderCounterAttackPower = [];
+    checkNumberDefender = 3;
     $(".img-frame-cap3").removeAttr("dataIndex");
 
 
