@@ -84,3 +84,9 @@ p{
     color: navy;
     font-weight: bold;
 }
+
+p1{
+    color:red;
+    font-weight: bold;
+    font-size: 50px;
+}

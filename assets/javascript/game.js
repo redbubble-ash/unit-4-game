@@ -17,6 +17,7 @@ var defenderCounterAttackPower = [];
 var hideFirstSection = "";
 var hideThirdSection = "";
 var defenderIndex = -1;
+var checkNumberDefender = 3;
 
 
 $(document).ready(function () {
@@ -87,6 +88,7 @@ $(document).ready(function () {
       $(".img-frame-cap4 .CharacterName").html(defenderNmae[defenderIndex]);
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       $(this).hide();
+      checkNumberDefender --;
       $(".img-frame-cap4").show();
     })
 
@@ -105,15 +107,22 @@ $(document).ready(function () {
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       $("p").html("You attacked " + defenderNmae[defenderIndex] + " " + newAttackPower + "</br>" + defenderNmae[defenderIndex] + " attacked you back " + defenderCounterAttackPower[defenderIndex]);
       if (hpLevel <= 0) {
-        $("p").html("You been defeated! Game is over!&#9785;");
+        $("p").html("You have been defeated! Game is over!&#9785;");
         $(".restart").show();
         $(".restart").on("click", restart);
       }
-      else if (defenderHP[defenderIndex]<= 0){
+      else if (defenderHP[defenderIndex]<= 0 && checkNumberDefender>0){
         $(".img-frame-cap4").hide();
         $("p").html("You have defeated " + defenderNmae[defenderIndex] + "." + " You can choose to fight another enemy !");
 
       }
+      else if(defenderHP[defenderIndex]<= 0 && checkNumberDefender===0){
+        $(".img-frame-cap4").hide();
+        $("p1").html("You win!!! Game Over!!!&#128515;");
+        $("p").html("");
+      }
+
+    
     
     }
   })
