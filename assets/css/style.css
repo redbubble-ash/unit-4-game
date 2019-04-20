@@ -72,23 +72,15 @@ h4{
 
 }
 
-.img-frame-cap3-2 {
-    width:200px;
-    padding:5px 5px 2px 5px;
-    border:5px solid red !important; 
-
-}
-
-.img-frame-cap3-3 {
-    width:200px;
-    padding:5px 5px 2px 5px;
-    border:5px solid red !important; 
-
-}
 
 .img-frame-cap4 {
     width:200px;
     padding:5px 5px 2px 5px;
     border:5px solid black !important; 
 
+}
+
+p{
+    color: red;
+    font-weight: bold;
 }

@@ -96,7 +96,7 @@ $(document).ready(function () {
 
   // click button to attack, only call back when defender has been chosen.* do not place button click call back inside of other click call backs!!
   $("button").on("click", function () {
-    if (defenderIndex > -1){
+    if (defenderIndex > -1 && hpLevel>0){
       hpLevel -= defenderCounterAttackPower[defenderIndex];
       newAttackPower += attackPower;
       defenderHP[defenderIndex] -= newAttackPower;
@@ -104,7 +104,7 @@ $(document).ready(function () {
       $(".img-frame-cap2 .HP").html(hpLevel);
       $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       if (hpLevel <= 0) {
-        $("p").html("You been defeated! Game is over!");
+        $("p").html("You been defeated! Game is over!&#9785;");
         $(".restart").show();
         $(".restart").on("click",restart);
       }
@@ -118,7 +118,7 @@ $(document).ready(function () {
     $(".thirdSection").detach();
     $(".img-frame-cap4").hide();
     $(".restart").hide();
-    $("p").hide();
+    $("p").html("");
     characterImage = "";
     characterName = "";
     hpLevel = 0;
