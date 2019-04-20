@@ -16,6 +16,7 @@ var defenderAttackPower = [];
 var defenderCounterAttackPower = [];
 var hideFirstSection="";
 var hideThirdSection="";
+var defenderIndex = -1;
 
 
 $(document).ready(function () {
@@ -81,30 +82,35 @@ $(document).ready(function () {
 
     // choose defender by clicking an image from enemies available list
     $(".img-frame-cap3").on("click", function () {
-      var x=$(this).attr("dataIndex");
-      $(".img-frame-cap4 img").attr("src", defenderImage[x]);
-      $(".img-frame-cap4 .CharacterName").html(defenderNmae[x]);
-      $(".img-frame-cap4 .HP").html(defenderHP[x]);
+      defenderIndex=$(this).attr("dataIndex");
+      $(".img-frame-cap4 img").attr("src", defenderImage[defenderIndex]);
+      $(".img-frame-cap4 .CharacterName").html(defenderNmae[defenderIndex]);
+      $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
       $(this).hide();
       $(".img-frame-cap4").show();
-      //  hp level decreases when attack 
-      $("button").on("click", function () {
-        hpLevel -= defenderCounterAttackPower[x];
-        newAttackPower += attackPower;
-        defenderHP[x] -= newAttackPower;
-        $(".img-frame-cap2 .HP").html(hpLevel);
-        $(".img-frame-cap4 .HP").html(defenderHP[x]);
-        if (hpLevel <= 0) {
-          $("p").html("You been defeated! Game is over!");
-          $(".restart").show();
-          $(".restart").on("click",restart);
-        }
-      })
-
     })
-
+      
+  
 
   });
+
+  // click button to attack, only call back when defender has been chosen.* do not place button click call back inside of other click call backs!!
+  $("button").on("click", function () {
+    if (defenderIndex > -1){
+      hpLevel -= defenderCounterAttackPower[defenderIndex];
+      newAttackPower += attackPower;
+      defenderHP[defenderIndex] -= newAttackPower;
+      console.log(hpLevel, newAttackPower, defenderHP[defenderIndex], defenderCounterAttackPower[defenderIndex]);
+      $(".img-frame-cap2 .HP").html(hpLevel);
+      $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
+      if (hpLevel <= 0) {
+        $("p").html("You been defeated! Game is over!");
+        $(".restart").show();
+        $(".restart").on("click",restart);
+      }
+    }
+  })
+
 
   function restart() {
     $("section1").prepend(hideFirstSection);
