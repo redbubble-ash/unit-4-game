@@ -15,16 +15,15 @@ var defenderHP = [];
 var defenderAttackPower = [];
 var defenderCounterAttackPower = [];
 var hideFirstSection = "";
-var hideThirdSection = "";
 var defenderIndex = -1;
 var checkNumberDefender = 3;
 
 
 $(document).ready(function () {
   $(".img-frame-cap2").hide();
-  hideThirdSection = $(".thirdSection").detach();
   $(".img-frame-cap4").hide();
   $(".restart").hide();
+  $("section2").hide();
 
   // choose a fighter by clicking an image
   $(".img-frame-cap").on("click", function () {
@@ -67,7 +66,7 @@ $(document).ready(function () {
 
 
     // add image link, name & hp level for defender characters to your defender section
-    $("section2").prepend(hideThirdSection);
+    $("section2").show();
 
     // loop over img-frame-cap3, update defender element
     $(".img-frame-cap3").each(function (index) {
@@ -80,26 +79,23 @@ $(document).ready(function () {
 
     });
 
-
-    // choose defender by clicking an image from enemies available list
-    $(".img-frame-cap3").on("click", function () {
-      defenderIndex = $(this).attr("dataIndex");
-      $(".img-frame-cap4 img").attr("src", defenderImage[defenderIndex]);
-      $(".img-frame-cap4 .CharacterName").html(defenderNmae[defenderIndex]);
-      $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
-      $(this).hide();
-      checkNumberDefender --;
-      console.log(checkNumberDefender)
-      $(".img-frame-cap4").show();
-    })
-
-
-
   });
+
+  // choose defender by clicking an image from enemies available list
+  $(".img-frame-cap3").on("click", function () {
+    defenderIndex = $(this).attr("dataIndex");
+    $(".img-frame-cap4 img").attr("src", defenderImage[defenderIndex]);
+    $(".img-frame-cap4 .CharacterName").html(defenderNmae[defenderIndex]);
+    $(".img-frame-cap4 .HP").html(defenderHP[defenderIndex]);
+    $(this).hide();
+    checkNumberDefender--;
+    console.log(checkNumberDefender)
+    $(".img-frame-cap4").show();
+  })
 
   // click button to attack, only call back when the defender has been chosen.* do not place button click call back inside of other click call backs!! here defenderIndex is global scope
   $("button").on("click", function () {
-    if (defenderIndex > -1 && hpLevel > 0 && defenderHP[defenderIndex]>0) {
+    if (defenderIndex > -1 && hpLevel > 0 && defenderHP[defenderIndex] > 0) {
       hpLevel -= defenderCounterAttackPower[defenderIndex];
       newAttackPower += attackPower;
       defenderHP[defenderIndex] -= newAttackPower;
@@ -112,19 +108,21 @@ $(document).ready(function () {
         $(".restart").show();
         $(".restart").on("click", restart);
       }
-      else if (defenderHP[defenderIndex]<= 0 && checkNumberDefender>0){
+      else if (defenderHP[defenderIndex] <= 0 && checkNumberDefender > 0) {
         $(".img-frame-cap4").hide();
         $("p").html("You have defeated " + defenderNmae[defenderIndex] + "." + " You can choose to fight another enemy !");
 
       }
-      else if(defenderHP[defenderIndex]<= 0 && checkNumberDefender===0){
+      else if (defenderHP[defenderIndex] <= 0 && checkNumberDefender === 0) {
         $(".img-frame-cap4").hide();
         $("p1").html("You win!!! Game Over!!!&#128515;");
         $("p").html("");
+        $(".restart").show();
+        $(".restart").on("click", restart);
       }
 
-    
-    
+
+
     }
   })
 
@@ -132,7 +130,7 @@ $(document).ready(function () {
   function restart() {
     $("section1").prepend(hideFirstSection);
     $(".img-frame-cap2").hide();
-    $(".thirdSection").detach();
+    $("section2").hide();
     $(".img-frame-cap4").hide();
     $(".restart").hide();
     $("p").html("");
@@ -149,12 +147,10 @@ $(document).ready(function () {
     defenderCounterAttackPower = [];
     checkNumberDefender = 3;
     $(".img-frame-cap3").removeAttr("dataIndex");
+    $("p1").html("");
 
 
   }
-
-
-
 
 
 })
