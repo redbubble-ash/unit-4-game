@@ -18,7 +18,7 @@ Welcome to my Star Wars RPG Game! In this game you can choose a Star Wars charac
 
    * When the defender's `HP` is reduced to zero or below, the player character can now choose a new opponent.
 
-    * The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
+   * The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
 
 **Here are some notes:**
 
